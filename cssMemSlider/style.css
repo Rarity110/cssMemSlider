@@ -4,56 +4,47 @@
 }
 
 body {
-background-color: aqua;
-/* text-align: center; */
+    background-color:  rgb(20 26 60);
 }
 
 .wrapper {
-    /* vertical-align: auto; */
-    /* margin-top: 5vh; */
-max-width: 76vw;
-width: 100%;
-height: 95vh;
-margin: 5vh auto auto auto;
-background-color: slateblue;
-display: flex;
-/* flex-direction:row-reverse; */
-overflow: hidden;
-flex-wrap: wrap;
-align-content: flex-start;
-row-gap: 5%;
+    max-width: 76vw;
+    width: 100%;
+    height: 95vh;
+    margin: 5vh auto auto auto;
+    display: flex;
+    overflow: hidden;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    row-gap: 2%;
+    justify-content: space-between;
 }
 
-.wrapper input,
-.wrapper label {
-    order: 3;
+input {
+    height: 0%;
+    width: 0%;
 }
 
 .slider {
-order: 1;
-width: 100%;
-height: 80%;
-background-color: blue;
-display: flex;
-flex-direction: row;
-overflow: hidden;
+    order: 1;
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
 }
 
 .slides {
-/* transform: translate(100%); */
-
-width: 0%;
-height: auto;
-overflow: hidden;
-position: relative;
-overflow: hidden;
-background-color: blue;
-opacity: 0;
-transition: all 0.5s linear;
-/* transition: transform ease-in-out .5s, opacity ease-in-out .5s; */
-background-repeat: no-repeat;     
-background-position: center;
-background-size: contain;
+    width: 0%;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.7s linear;
+    background-repeat: no-repeat;     
+    background-position: center;
+    background-size: contain;
 }
 
 .slide1 {background-image: url(.//assets/happy-cat.jpg);}
@@ -62,55 +53,80 @@ background-size: contain;
 .slide4 {background-image: url(./assets/terrified-student-new.jpg);}
 .slide5 {background-image: url(.//assets/flight-cat-new.jpg);}
 
-/* .controls {
-position: relative;
-width: 40%;
-height: 10%;
-background-color: blueviolet;
-display: flex;
-flex-direction: row;
-} */
-input {
-    height: 3rem;
-    width: 3rem;
-    opacity: 1;
-    
+.controls {
+    order: 3;
+    position: relative;
+    width: 30%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 2%;
 }
 
 label {
-/* order: 3; */
-height: 0.11rem;
-width: 0.11rem;
-border-radius: 50%;
-/* display: inline-block; */
-background-color: bisque;
-transition: all .5s ease-in-out;
-opacity: 1;
-/* transform: translate(-210%, 115%); */
+    cursor: pointer;
+    transition: all 0.7s linear;
+    border-radius: 50%;
+    height: 3rem;
+    width: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* label::after {
-border: 2px;
-content: "";
-display: block;
-height: 30%;
-width: 10%;
-border-radius: 50%;
+.key {
+    cursor: pointer;
+    transition: all 0.7s linear;
+    border: solid 0.25rem;
+    border-color: rgba(255, 255, 255, 0.861);
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.861);
+    height: 1.5rem;
+    width: 1.5rem;
+    opacity: 1;
+}
 
-} */
+label:hover .key {
+    background: rgb(25, 94, 244);
+    border-color: rgb(25, 94, 244);
+}
+
+#slide1:checked ~ .controls label:nth-of-type(1) .key,
+#slide2:checked ~ .controls label:nth-of-type(2) .key,
+#slide3:checked ~ .controls label:nth-of-type(3) .key,
+#slide4:checked ~ .controls label:nth-of-type(4) .key,
+#slide5:checked ~ .controls label:nth-of-type(5) .key {
+    transition: all 0.7s linear;
+    background: inherit;
+}
 
 .all-phrases {
-order: 2;
-width: 80%;
+    order: 2;
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
 }
 
-label:hover, 
-#slide1:checked ~ label:nth-of-type(1),
-#slide2:checked ~ label:nth-of-type(2),
-#slide3:checked ~ label:nth-of-type(3),
-#slide4:checked ~ label:nth-of-type(4),
-#slide5:checked ~ label:nth-of-type(5) {
-background: rgb(169, 30, 30);
+.phrases {
+    width: 0%;
+    height: auto;
+    overflow: hidden;
+    font-size: 3rem;
+    color: rgba(255, 255, 255, 0.861);
+    transform: translateX(-100%);
+    transition: transform ease-in-out .7s, opacity ease-in-out .7s;
+}
+    
+#slide1:checked ~ .all-phrases > .phrase1,
+#slide2:checked ~ .all-phrases > .phrase2,
+#slide3:checked ~ .all-phrases > .phrase3,
+#slide4:checked ~ .all-phrases > .phrase4,
+#slide5:checked ~ .all-phrases > .phrase5 {
+    transform: translateX(0);
+    transition: transform ease-in-out .7s, opacity ease-in-out .7s; 
+    width: 100%;
 }
 
 #slide1:checked ~ .slider > .slide1,
@@ -118,19 +134,15 @@ background: rgb(169, 30, 30);
 #slide3:checked ~ .slider > .slide3,
 #slide4:checked ~ .slider > .slide4,
 #slide5:checked ~ .slider > .slide5 {
-/* transform: translateX(0); */
-transition: all 0.5s linear;
-/* transform: scale(1); */
-opacity: 1;
-width: 100%;
-}
+    transition: transform ease-in-out .7s, opacity ease-in-out .7s; 
+    opacity: 1;
+    width: 100%;
+};
 
-#slide1:checked ~ .all-phrases > .phrase1,
-#slide2:checked ~ .all-phrases > .phrase2,
-#slide3:checked ~ .all-phrases > .phrase3,
-#slide4:checked ~ .all-phrases > .phrase4,
-#slide5:checked ~ .all-phrases > .phrase5 {
-transform: translateX(0);
-transition: all linear 0.5s;
-}
 
+
+
+/* @media (max-width:  1650px) {
+    label {transform: translate(145%, 85%)}
+    .all-phrases {width: 65%}
+} */
