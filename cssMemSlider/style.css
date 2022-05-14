@@ -8,8 +8,8 @@ body {
 }
 
 .wrapper {
-    max-width: 120rem;
-    width: 90%;
+    max-width: 97vw;
+    width: 139vh;
     height: 97vh;
     margin: 5vh auto auto auto;
     display: flex;
@@ -43,7 +43,7 @@ input {
     opacity: 0;
     transition: all 0.7s linear;
     background-repeat: no-repeat;     
-    background-position: center;
+    background-position: bottom;
     background-size: contain;
 }
 
@@ -120,12 +120,6 @@ label:hover .key {
     transition: transform ease-in-out .7s, opacity ease-in-out .7s;
 }
 
-/* @media (min-height: 1120px) {
-    .slides {
-        background-size: cover;
-    }
-} */
-
 @media (max-width: 1279.98px) {
     .key {
         height: 1rem;
@@ -149,6 +143,7 @@ label:hover .key {
         height: 10%;
         justify-content: center;
         gap: 1%;
+        align-items: center;
     }
 
     .key {
@@ -185,18 +180,5 @@ label:hover .key {
     transition: transform ease-in-out .7s, opacity ease-in-out .7s; 
     opacity: 1;
     width: 100%;
-};
+}
 
-
-
-
-/* @media (max-width: 1279.98px) {
-    .key {
-        height: 1rem;
-        width: 1rem;
-    }
-    
-    .phrases {
-        font-size: 1rem;
-    }
-} */
