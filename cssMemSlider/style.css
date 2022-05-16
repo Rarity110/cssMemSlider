@@ -1,0 +1,189 @@
+* {
+    box-sizing: border-box;
+    margin: 0 0 0 0;
+}
+
+body {
+    background-color:  rgb(20 26 60);
+}
+
+.wrapper {
+    max-width: 97vw;
+    width: 135vh;
+    height: 95vh;
+    margin: 5vh auto auto auto;
+    display: flex;
+    overflow: hidden;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    row-gap: 2%;
+    justify-content: space-between;
+}
+
+input {
+    height: 0%;
+    width: 0%;
+}
+
+.slider {
+    order: 1;
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.slides {
+    width: 0%;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.7s linear;
+    background-repeat: no-repeat;     
+    background-position: bottom;
+    background-size: contain;
+}
+
+.slide1 {background-image: url(.//assets/happy-cat.jpg);}
+.slide2 {background-image: url(.//assets/terrified-new.jpg);}
+.slide3 {background-image: url(./assets/bored.jpg);}
+.slide4 {background-image: url(./assets/terrified-student-new.jpg);}
+.slide5 {background-image: url(.//assets/flight-cat-new.jpg);}
+
+.controls {
+    order: 3;
+    position: relative;
+    width: 30%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 2%;
+}
+
+label {
+    cursor: pointer;
+    transition: all 0.7s linear;
+    border-radius: 50%;
+    height: 3rem;
+    width: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.key {
+    cursor: pointer;
+    transition: all 0.7s linear;
+    border: solid 0.25rem;
+    border-color: rgba(255, 255, 255, 0.861);
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.861);
+    height: 1.5rem;
+    width: 1.5rem;
+    opacity: 1;
+}
+
+label:hover .key {
+    background: rgb(25, 94, 244);
+    border-color: rgb(25, 94, 244);
+}
+
+label:active .key {
+    transform: scale(1.5);
+    transition: all 0.7s linear;
+}
+
+#slide1:checked ~ .controls label:nth-of-type(1) .key,
+#slide2:checked ~ .controls label:nth-of-type(2) .key,
+#slide3:checked ~ .controls label:nth-of-type(3) .key,
+#slide4:checked ~ .controls label:nth-of-type(4) .key,
+#slide5:checked ~ .controls label:nth-of-type(5) .key {
+    transition: all 0.7s linear;
+    background: inherit;
+}
+
+.all-phrases {
+    order: 2;
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.phrases {
+    width: 0%;
+    height: auto;
+    overflow: hidden;
+    font-size: 2rem;
+    line-height: 3rem;
+    color: rgba(255, 255, 255, 0.861);
+    transform: translateX(-100%);
+    transition: transform ease-in-out .7s, opacity ease-in-out .7s;
+}
+
+@media (max-width: 1279.98px) {
+    .key {
+        height: 1rem;
+        width: 1rem;
+    }
+    
+    .phrases {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .slider {
+        width: 100%;
+        height: 55%;
+    }
+
+    .controls {
+        order: 2;
+        width: 100%;
+        height: 10%;
+        justify-content: center;
+        gap: 1%;
+        align-items: center;
+    }
+
+    .key {
+        height: 1rem;
+        width: 1rem;
+    }
+    
+    .all-phrases {
+        order: 3;
+        width: 100%;
+    }
+
+    .phrases {
+        font-size: 1rem;
+        line-height: 1rem;
+    }
+}
+    
+#slide1:checked ~ .all-phrases > .phrase1,
+#slide2:checked ~ .all-phrases > .phrase2,
+#slide3:checked ~ .all-phrases > .phrase3,
+#slide4:checked ~ .all-phrases > .phrase4,
+#slide5:checked ~ .all-phrases > .phrase5 {
+    transform: translateX(0);
+    transition: transform ease-in-out .7s, opacity ease-in-out .7s; 
+    width: 100%;
+}
+
+#slide1:checked ~ .slider > .slide1,
+#slide2:checked ~ .slider > .slide2,
+#slide3:checked ~ .slider > .slide3,
+#slide4:checked ~ .slider > .slide4,
+#slide5:checked ~ .slider > .slide5 {
+    transition: transform ease-in-out .7s, opacity ease-in-out .7s; 
+    opacity: 1;
+    width: 100%;
+}
+
